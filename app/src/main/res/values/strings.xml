@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Instragram Clone</string>
+
+    <string name="facebook_login">Log in with Facebook</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="email">Email</string>
+    <string name="forgot_your_details">Forgot your Details?</string>
+    <string name="login_text">Get help logging in.</string>
+    <string name="signup_confirm">Sign up as</string>
+    <string name="userName">kebria.zaman?</string>
+    <string name="privacy_policy">By tapping Sign up, you agree to our <b>Terms, Privacy Policy</b> and <b>Cookies Policy</b>.</string>
+    <string name="change_username">Change username</string>
+    <string name="add_photo">Add photo</string>
+</resources>
