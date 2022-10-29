@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.instragramclone.R;
+import com.parse.ParseUser;
 
 public class SignupDataSetActivity extends AppCompatActivity {
 
@@ -27,7 +28,18 @@ public class SignupDataSetActivity extends AppCompatActivity {
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                /*ParseUser user = new ParseUser();
+                user.setUsername(fullName.getText().toString());
+                user.setPassword(userPassword.getText().toString());
+                user.saveInBackground();*/
+
+                Intent getEmailIntent = getIntent();
+
                 Intent intent = new Intent(SignupDataSetActivity.this, SignupConfirmActivity.class);
+                intent.putExtra("fullname", fullName.getText().toString());
+                intent.putExtra("userpassword", userPassword.getText().toString());
+                intent.putExtra("email", getEmailIntent.getStringExtra("useremail"));
                 startActivity(intent);
             }
         });
