@@ -9,9 +9,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.instragramclone.R;
+import com.parse.ParseException;
+import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 public class SignupConfirmActivity extends AppCompatActivity {
-
 
     TextView name;
     Intent getDataSet;
@@ -37,11 +39,31 @@ public class SignupConfirmActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
                 Intent intent = new Intent(SignupConfirmActivity.this, AddPhotoActivity.class);
                 intent.putExtra("fullname", getDataSet.getStringExtra("fullname"));
                 intent.putExtra("userpassword", getDataSet.getStringExtra("userpassword"));
                 intent.putExtra("email", getDataSet.getStringExtra("email"));
+                startActivity(intent);
+                /*ParseUser user = new ParseUser();
+                user.setUsername(getDataSet.getStringExtra("fullname"));
+                user.setPassword(getDataSet.getStringExtra("userpassword"));
+                user.setEmail(getDataSet.getStringExtra("email"));
+                user.saveInBackground(new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        if ( e == null ) {
+
+                        }
+                    }
+                });*/
+            }
+        });
+
+        chageUserNameTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SignupConfirmActivity.this, ChangeUserNameActivity.class);
+                intent.putExtra("username", splitUserName[0]);
                 startActivity(intent);
             }
         });
