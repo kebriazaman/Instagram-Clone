@@ -4,19 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 
 import com.example.instragramclone.R;
-import com.example.instragramclone.home.HomePageActiviy;
 
 import java.util.ArrayList;
 
 public class DiscoverPeopleActivity extends AppCompatActivity {
 
-    ArrayList<DiscoverPeopleModule> discoverPeopleList;
+    ArrayList<DiscoverPeopleModel> discoverPeopleList;
     DiscoverPeopleAdapter discoverPeopleAdapter;
     RecyclerView followPeopleRecyclerView;
 
@@ -29,8 +26,8 @@ public class DiscoverPeopleActivity extends AppCompatActivity {
         followPeopleRecyclerView = findViewById(R.id.followPeopleRecyclerView);
 
         discoverPeopleList = new ArrayList<>();
-        discoverPeopleList.add(new DiscoverPeopleModule(R.drawable.elon_musk, R.drawable.cancel_image, "Elon", "Elon Musk"));
-        discoverPeopleList.add(new DiscoverPeopleModule(R.drawable.faizi, R.drawable.cancel_image, "Faizi", "Faizan Musk"));
+        discoverPeopleList.add(new DiscoverPeopleModel(R.drawable.elon_musk, R.drawable.cancel_image, "Elon", "Elon Musk"));
+        discoverPeopleList.add(new DiscoverPeopleModel(R.drawable.faizi, R.drawable.cancel_image, "Faizi", "Faizan Musk"));
         followPeopleRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
         discoverPeopleAdapter = new DiscoverPeopleAdapter(this, discoverPeopleList);
         followPeopleRecyclerView.setAdapter(discoverPeopleAdapter);

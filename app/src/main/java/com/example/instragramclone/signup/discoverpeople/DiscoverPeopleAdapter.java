@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,9 +17,9 @@ import java.util.ArrayList;
 public class DiscoverPeopleAdapter extends RecyclerView.Adapter<DiscoverPeopleAdapter.myViewHolder> {
 
     Context context;
-    ArrayList<DiscoverPeopleModule> discoverPeopleList;
+    ArrayList<DiscoverPeopleModel> discoverPeopleList;
 
-    public DiscoverPeopleAdapter(Context context, ArrayList<DiscoverPeopleModule> discoverPeopleList){
+    public DiscoverPeopleAdapter(Context context, ArrayList<DiscoverPeopleModel> discoverPeopleList){
         this.context = context;
         this.discoverPeopleList = discoverPeopleList;
     }
@@ -36,7 +35,7 @@ public class DiscoverPeopleAdapter extends RecyclerView.Adapter<DiscoverPeopleAd
     @Override
     public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
 
-        DiscoverPeopleModule discoverPeopleModule = discoverPeopleList.get(position);
+        DiscoverPeopleModel discoverPeopleModule = discoverPeopleList.get(position);
         holder.personImage.setImageResource(discoverPeopleModule.image);
         holder.personName.setText(discoverPeopleModule.name);
         holder.personFullName.setText(discoverPeopleModule.fullName);
@@ -45,7 +44,7 @@ public class DiscoverPeopleAdapter extends RecyclerView.Adapter<DiscoverPeopleAd
         holder.remove_from_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                discoverPeopleList.remove(position);
+                discoverPeopleList.remove(holder.getAdapterPosition());
                 notifyDataSetChanged();
             }
         });

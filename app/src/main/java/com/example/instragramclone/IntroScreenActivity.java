@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.example.instragramclone.login.myaccounts.MyAccountsActivity;
 import com.example.instragramclone.signup.SignUpActivity;
 
 public class IntroScreenActivity extends AppCompatActivity {
@@ -37,7 +38,7 @@ public class IntroScreenActivity extends AppCompatActivity {
                 }
                 finally{
                     // Code for going from splash screen to main activity
-                    Intent intent = new Intent(IntroScreenActivity.this, SignUpActivity.class);
+                    Intent intent = new Intent(IntroScreenActivity.this, MyAccountsActivity.class);
                     startActivity(intent);
                     finishAffinity();
                 }

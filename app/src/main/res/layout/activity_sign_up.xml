@@ -97,7 +97,8 @@
         android:id="@+id/querryTextview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="18dp"
+        android:textSize="12sp"
         android:text="@string/already_have_an_account"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -106,13 +107,16 @@
         />
 
     <TextView
+        android:id="@+id/gotoLoginActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
         android:text=" Log in."
+        android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/querryTextview"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="20dp" />
+        app:layout_constraintStart_toEndOf="@+id/querryTextview"
+        app:layout_constraintTop_toTopOf="@+id/line2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
