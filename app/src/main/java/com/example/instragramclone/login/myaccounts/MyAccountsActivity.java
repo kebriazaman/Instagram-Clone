@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -30,12 +31,14 @@ public class MyAccountsActivity extends AppCompatActivity {
         myAccountsRecyclerView = findViewById(R.id.myAccountsRecyclerView);
 
         myAcc = new ArrayList<>();
-
-        myAcc.add(new MyAccountsModel(R.drawable.elon_musk, "Elon Musk"));
+        myAcc.add(new MyAccountsModel(R.drawable.elon_musk, "Elon Musk", R.drawable.remove_menu));
+        myAcc.add(new MyAccountsModel(R.drawable.faizi, "Faizi tatai", R.drawable.remove_menu));
 
         myAccountsRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
-        myAccountsAdapter = new MyAccountsAdapter(this, myAcc);
+        myAccountsAdapter = new MyAccountsAdapter(MyAccountsActivity.this, myAcc);
         myAccountsRecyclerView.setAdapter(myAccountsAdapter);
+
+
 
 
         signup.setOnClickListener(new View.OnClickListener() {

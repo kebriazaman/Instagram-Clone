@@ -11,4 +11,5 @@
     <string name="privacy_policy">By tapping Sign up, you agree to our <b>Terms, Privacy Policy</b> and <b>Cookies Policy</b>.</string>
     <string name="change_username">Change username</string>
     <string name="add_photo">Add photo</string>
+    <string name="remove_acc_text">Your\'ll need to enter your <br>username and password the</br> next you to log in.</string>
 </resources>

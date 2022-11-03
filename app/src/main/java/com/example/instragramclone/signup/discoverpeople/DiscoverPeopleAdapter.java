@@ -46,6 +46,7 @@ public class DiscoverPeopleAdapter extends RecyclerView.Adapter<DiscoverPeopleAd
             public void onClick(View view) {
                 discoverPeopleList.remove(holder.getAdapterPosition());
                 notifyDataSetChanged();
+
             }
         });
 

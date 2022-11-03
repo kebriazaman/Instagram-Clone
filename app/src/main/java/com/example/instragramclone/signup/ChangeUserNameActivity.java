@@ -37,5 +37,7 @@ public class ChangeUserNameActivity extends AppCompatActivity {
             }
         });
 
+        dialog.dismiss();
+
     }
 }
