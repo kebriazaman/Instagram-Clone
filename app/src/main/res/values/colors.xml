@@ -12,4 +12,5 @@
 
     <color name="noti_bar_color">#FFFFFF</color>
     <color name="splash_notifi_bar_color">#F4EFEF</color>
+    <color name="edit_text_bg_color">#FBFAFA</color>
 </resources>

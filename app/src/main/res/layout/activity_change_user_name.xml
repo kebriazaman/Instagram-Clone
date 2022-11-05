@@ -34,6 +34,19 @@
         app:layout_constraintTop_toBottomOf="@id/changeName" />
 
 
+    <ImageView
+        android:id="@+id/tick"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/tick"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="280dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/changeUserNameEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/changeUserNameEditText"
+        app:layout_constraintTop_toBottomOf="@+id/desTextView" />
+
     <EditText
         android:id="@+id/changeUserNameEditText"
         android:layout_width="match_parent"
@@ -47,7 +60,8 @@
         android:hint="Change Username"
         android:inputType="text"
         android:maxLines="1"
-        android:paddingLeft="10dp"
+        android:textSize="12sp"
+        android:paddingLeft="18dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/changeName"

@@ -9,7 +9,6 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.example.instragramclone.login.myaccounts.MyAccountsActivity;
-import com.example.instragramclone.signup.SignUpActivity;
 
 public class IntroScreenActivity extends AppCompatActivity {
 

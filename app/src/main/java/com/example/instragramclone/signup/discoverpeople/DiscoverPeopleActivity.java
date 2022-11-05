@@ -36,8 +36,6 @@ public class DiscoverPeopleActivity extends AppCompatActivity {
         /*forward.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
                 Intent intent = new Intent(DiscoverPeopleActivity.this, HomePageActiviy.class);
                 intent.putExtra("fullname", getIntent().getStringExtra("fullname"));
                 intent.putExtra("userpassword", getIntent().getStringExtra("userpassword"));

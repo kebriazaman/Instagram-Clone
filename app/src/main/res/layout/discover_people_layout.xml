@@ -5,20 +5,23 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    android:padding="15dp">
+    android:paddingLeft="15dp"
+    android:paddingRight="10dp"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="53dp"
+        android:layout_height="53dp"
         app:cardCornerRadius="30dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/personImage"
-            android:layout_width="66dp"
-            android:layout_height="66dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:scaleType="centerCrop"
             android:src="@drawable/elon_musk" />
 
@@ -41,6 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Elon Musk"
+        android:textSize="12sp"
         android:layout_marginLeft="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/cardView"
         app:layout_constraintStart_toEndOf="@+id/cardView"
@@ -49,8 +53,8 @@
 
     <Button
         android:id="@+id/follow"
-        android:layout_width="wrap_content"
-        android:layout_height="36dp"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
         android:layout_marginRight="15dp"
         android:background="@drawable/insta_buttons_styling"
         android:text="Follow"
@@ -61,11 +65,13 @@
         app:layout_constraintEnd_toStartOf="@+id/remove_from_list"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <ImageView
         android:id="@+id/remove_from_list"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:src="@drawable/cancel_image"
+        android:layout_marginRight="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

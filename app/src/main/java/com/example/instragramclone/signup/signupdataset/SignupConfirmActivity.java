@@ -1,4 +1,4 @@
-package com.example.instragramclone.signup;
+package com.example.instragramclone.signup.signupdataset;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,9 +9,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.instragramclone.R;
-import com.parse.ParseException;
-import com.parse.ParseUser;
-import com.parse.SaveCallback;
+import com.example.instragramclone.signup.AddPhotoActivity;
+import com.example.instragramclone.signup.ChangeUserNameActivity;
 
 public class SignupConfirmActivity extends AppCompatActivity {
 

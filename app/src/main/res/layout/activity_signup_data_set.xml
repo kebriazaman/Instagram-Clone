@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".signup.SignupDataSetActivity"
+    tools:context=".signup.signupdataset.SignupDataSetActivity"
     android:background="@color/white">
 
     <TextView
@@ -59,7 +59,8 @@
         android:layout_height="46dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="20dp"
-        android:alpha="0.5"
+        android:enabled="false"
+        android:alpha="0.4"
         android:textColor="@color/white"
         android:layout_marginRight="30dp"
         android:background="@drawable/insta_buttons_styling"

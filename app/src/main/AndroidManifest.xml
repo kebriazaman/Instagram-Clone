@@ -49,14 +49,14 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".signup.SignupConfirmActivity"
+            android:name=".signup.signupdataset.SignupConfirmActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".signup.SignUpActivity"
+            android:name=".signup.signupdataset.SignUpActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -83,7 +83,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".signup.SignupDataSetActivity"
+            android:name=".signup.signupdataset.SignupDataSetActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"

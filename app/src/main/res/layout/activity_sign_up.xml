@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".signup.SignUpActivity"
+    tools:context=".signup.signupdataset.SignUpActivity"
     android:background="@color/white">
 
     <View
@@ -65,7 +65,7 @@
         app:layout_constraintTop_toBottomOf="@+id/line1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteX="30dp" />
+        android:cursorVisible="false"/>
 
     <Button
         android:id="@+id/nextButton"
@@ -74,6 +74,8 @@
         android:text="Next"
         android:textColor="@color/white"
         android:textAllCaps="false"
+        android:enabled="false"
+        android:alpha="0.5"
         android:background="@drawable/insta_buttons_styling"
         app:layout_constraintTop_toBottomOf="@+id/getEmailEditText"
         android:layout_marginRight="30dp"

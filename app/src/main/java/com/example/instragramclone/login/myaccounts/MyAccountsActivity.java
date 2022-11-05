@@ -4,14 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 
 import com.example.instragramclone.R;
-import com.example.instragramclone.signup.SignUpActivity;
+import com.example.instragramclone.login.LoginActivity;
+import com.example.instragramclone.signup.signupdataset.SignUpActivity;
 
 import java.util.ArrayList;
 
@@ -20,7 +20,7 @@ public class MyAccountsActivity extends AppCompatActivity {
     ArrayList<MyAccountsModel> myAcc;
     RecyclerView myAccountsRecyclerView;
     MyAccountsAdapter myAccountsAdapter;
-    TextView signup, switchAccounts;
+    LinearLayout signup, switchAccounts;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +45,15 @@ public class MyAccountsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MyAccountsActivity.this, SignUpActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        switchAccounts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MyAccountsActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });

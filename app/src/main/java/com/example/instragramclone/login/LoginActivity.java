@@ -4,16 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.instragramclone.R;
-import com.example.instragramclone.signup.SignUpActivity;
-
-import java.util.regex.Pattern;
+import com.example.instragramclone.signup.signupdataset.SignUpActivity;
 
 public class LoginActivity extends AppCompatActivity {
 

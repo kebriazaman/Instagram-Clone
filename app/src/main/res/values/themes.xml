@@ -19,7 +19,8 @@
         <!-- Customize your theme here. -->
         <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
         <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textSize">16dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:autofilledHighlight" tools:targetApi="o">@android:color/transparent</item>
     </style>
 
 </resources>
