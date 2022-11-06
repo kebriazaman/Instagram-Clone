@@ -12,13 +12,19 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.instragramclone.R;
+import com.example.instragramclone.signup.signupdataset.SignupConfirmActivity;
+import com.parse.ParseException;
+import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 public class ChangeUserNameActivity extends AppCompatActivity {
 
@@ -30,27 +36,31 @@ public class ChangeUserNameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_user_name);
 
-        //TextView changeUserNameEditText = findViewById(R.id.changeUserNameEditText);
         tick = findViewById(R.id.tick);
         next = findViewById(R.id.next);
         changeUserNameEditText = findViewById(R.id.changeUserNameEditText);
-
-        changeUserNameEditText.addTextChangedListener(new TextWatcher() {@Override public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }@Override public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
+        changeUserNameEditText.addTextChangedListener(new TextWatcher() {@Override public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}@Override public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if ( editable.length() > 3 ) {
-                    tick.setVisibility(View.VISIBLE);
-                    tick.bringToFront();
-                } else {
-                    tick.setVisibility(View.INVISIBLE);
-                }
-            }
 
+                if (editable.length() >= 4) {
+                    next.setEnabled(true);
+                    next.setAlpha(1f);
+                    changeUserNameEditText.setSelection(changeUserNameEditText.getText().length());
+                    tick.animate().translationZ(20);
+                    tick.animate().scaleX(1).setDuration(500);
+                    tick.animate().scaleY(1).setDuration(500);
+
+                } else {
+                    next.setEnabled(false);
+                    next.setAlpha(0.4f);
+                    tick.animate().translationZ(-20);
+                    tick.animate().scaleX(-1).setDuration(500);
+                    tick.animate().scaleY(-1).setDuration(500);
+                }
+
+            }
 
         });
 
@@ -61,11 +71,23 @@ public class ChangeUserNameActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialog.show();
+
+                ParseUser currentUser = new ParseUser();
+
+                currentUser.put("username", changeUserNameEditText.getText().toString());
+                currentUser.saveInBackground(new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        if (e == null) {
+                            dialog.show();
+                            Intent intent = new Intent(ChangeUserNameActivity.this, SignupConfirmActivity.class);
+                            startActivity(intent);
+                        }
+                    }
+                });
+                dialog.dismiss();
             }
         });
-
-        dialog.dismiss();
 
     }
 }

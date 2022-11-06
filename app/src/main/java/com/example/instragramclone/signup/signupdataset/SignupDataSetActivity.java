@@ -29,14 +29,14 @@ public class SignupDataSetActivity extends AppCompatActivity {
 
         fullName.addTextChangedListener(new TextWatcher() { @Override public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-            }@Override public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
+            }@Override public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if ( editable.length() >0 ) {
+                if ( editable.length() >= 4 ) {
+
                     fullName.setSelection(fullName.getText().length());
+
                     userPassword.addTextChangedListener(new TextWatcher() {@Override public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
                         }@Override public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -66,27 +66,6 @@ public class SignupDataSetActivity extends AppCompatActivity {
 
             }
         });
-
-                    /*continueButton.setEnabled(true);
-                    continueButton.setAlpha(1f);*/
-/*                userPassword.addTextChangedListener(new TextWatcher() {
-                    @Override
-                    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-                    }
-
-                    @Override
-                    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    }
-
-                    @Override
-                    public void afterTextChanged(Editable editable) {
-
-
-                        Log.i("info", String.valueOf(editable.toString()));
-
-                    }
-                });*/
 
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override

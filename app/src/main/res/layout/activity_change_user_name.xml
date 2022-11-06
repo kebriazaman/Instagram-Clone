@@ -8,6 +8,18 @@
     tools:context=".signup.ChangeUserNameActivity"
     android:background="@color/white">
 
+
+    <ImageView
+        android:id="@+id/tick"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginLeft="260dp"
+        android:layout_marginTop="315dp"
+        android:src="@drawable/tick"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
     <TextView
         android:id="@+id/changeName"
         android:layout_width="wrap_content"
@@ -34,51 +46,37 @@
         app:layout_constraintTop_toBottomOf="@id/changeName" />
 
 
-    <ImageView
-        android:id="@+id/tick"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:src="@drawable/tick"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="280dp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/changeUserNameEditText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/changeUserNameEditText"
-        app:layout_constraintTop_toBottomOf="@+id/desTextView" />
-
     <EditText
         android:id="@+id/changeUserNameEditText"
         android:layout_width="match_parent"
         android:layout_height="46dp"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="25dp"
         android:background="@drawable/round_borders_edittext"
         android:elevation="1dp"
-        android:focusable="auto"
         android:hint="Change Username"
         android:inputType="text"
         android:maxLines="1"
-        android:textSize="12sp"
         android:paddingLeft="18dp"
+        android:textSize="12sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/changeName"
-        />
-
+        app:layout_constraintTop_toBottomOf="@id/desTextView"/>
 
     <Button
         android:id="@+id/next"
         android:layout_width="match_parent"
         android:layout_height="46dp"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="25dp"
+        android:alpha="0.4"
         android:background="@drawable/insta_buttons_styling"
+        android:enabled="false"
         android:text="Next"
-        android:textColor="@color/white"
         android:textAllCaps="false"
+        android:textColor="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/changeUserNameEditText" />

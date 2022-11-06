@@ -1,16 +1,20 @@
 package com.example.instragramclone.signup.discoverpeople;
 
+import android.graphics.Bitmap;
+
 public class DiscoverPeopleModel {
 
-    int image, remove;
+    byte[] data;
+    int remove;
     String name, fullName;
 
-    public DiscoverPeopleModel(int image, int remove, String name, String fullName) {
+    public DiscoverPeopleModel(byte[] data, int remove, String name, String fullName) {
 
-        this.image = image;
+        this.data = data;
         this.remove = remove;
         this.name = name;
         this.fullName = fullName;
 
     }
+
 }

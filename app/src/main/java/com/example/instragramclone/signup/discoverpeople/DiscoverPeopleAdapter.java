@@ -1,6 +1,8 @@
 package com.example.instragramclone.signup.discoverpeople;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.instragramclone.R;
@@ -35,11 +38,21 @@ public class DiscoverPeopleAdapter extends RecyclerView.Adapter<DiscoverPeopleAd
     @Override
     public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
 
-        DiscoverPeopleModel discoverPeopleModule = discoverPeopleList.get(position);
-        holder.personImage.setImageResource(discoverPeopleModule.image);
-        holder.personName.setText(discoverPeopleModule.name);
-        holder.personFullName.setText(discoverPeopleModule.fullName);
-        holder.remove_from_list.setImageResource(discoverPeopleModule.remove);
+        DiscoverPeopleModel discoverPeopleModel = discoverPeopleList.get(position);
+
+
+        Bitmap myBitmap = BitmapFactory.decodeByteArray(discoverPeopleModel.data, 0, discoverPeopleModel.data.length);
+
+
+        ImageView myImage = new ImageView(context);
+        myImage.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        myImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        myImage.setImageBitmap(myBitmap);
+        holder.cardView.addView(myImage);
+
+        holder.personName.setText(discoverPeopleModel.name);
+        holder.personFullName.setText(discoverPeopleModel.fullName);
+        holder.remove_from_list.setImageResource(discoverPeopleModel.remove);
 
         holder.remove_from_list.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,13 +72,15 @@ public class DiscoverPeopleAdapter extends RecyclerView.Adapter<DiscoverPeopleAd
 
     public class myViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView personImage, remove_from_list;
+        CardView cardView;
+        ImageView remove_from_list;
         TextView personName, personFullName;
 
         public myViewHolder(View view) {
             super(view);
 
-            personImage = view.findViewById(R.id.personImage);
+            cardView = view.findViewById(R.id.cardView);
+
             remove_from_list = view.findViewById(R.id.remove_from_list);
 
             personName = view.findViewById(R.id.personName);
