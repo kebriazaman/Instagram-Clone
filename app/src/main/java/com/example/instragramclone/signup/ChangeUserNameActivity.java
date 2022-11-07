@@ -31,6 +31,9 @@ public class ChangeUserNameActivity extends AppCompatActivity {
     Button next;
     EditText changeUserNameEditText;
     ImageView tick;
+
+    private void placeCursroAtEnd() { changeUserNameEditText.setSelection(changeUserNameEditText.getText().length());}
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +41,14 @@ public class ChangeUserNameActivity extends AppCompatActivity {
 
         tick = findViewById(R.id.tick);
         next = findViewById(R.id.next);
+
+        Intent intent = getIntent();
         changeUserNameEditText = findViewById(R.id.changeUserNameEditText);
+
+        placeCursroAtEnd();
+
+        changeUserNameEditText.setText(intent.getStringExtra("fullname"));
+
         changeUserNameEditText.addTextChangedListener(new TextWatcher() {@Override public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}@Override public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
 
             @Override
@@ -47,7 +57,7 @@ public class ChangeUserNameActivity extends AppCompatActivity {
                 if (editable.length() >= 4) {
                     next.setEnabled(true);
                     next.setAlpha(1f);
-                    changeUserNameEditText.setSelection(changeUserNameEditText.getText().length());
+                    placeCursroAtEnd();
                     tick.animate().translationZ(20);
                     tick.animate().scaleX(1).setDuration(500);
                     tick.animate().scaleY(1).setDuration(500);

@@ -2,6 +2,7 @@ package com.example.instragramclone.signup.signupdataset;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -35,6 +36,9 @@ public class SignupConfirmActivity extends AppCompatActivity {
 
         name = findViewById(R.id.name);
 
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.register_changed_name);
+
         String[] splitUserName = (getDataSet.getStringExtra("email")).split("@");
 
         name.setText(splitUserName[0]+"?");
@@ -50,12 +54,14 @@ public class SignupConfirmActivity extends AppCompatActivity {
                     @Override
                     public void done(ParseException e) {
                         if ( e == null ) {
+                            dialog.show();
                             Toast.makeText(SignupConfirmActivity.this, ParseUser.getCurrentUser().getUsername()+"singed up.", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(SignupConfirmActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+                dialog.dismiss();
                 Intent intent = new Intent(SignupConfirmActivity.this, AddPhotoActivity.class);
                 startActivity(intent);
             }
@@ -65,7 +71,7 @@ public class SignupConfirmActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(SignupConfirmActivity.this, ChangeUserNameActivity.class);
-                intent.putExtra("username", splitUserName[0]);
+                intent.putExtra("fullname", splitUserName[0]);
                 startActivity(intent);
             }
         });

@@ -58,17 +58,19 @@ public class DiscoverPeopleActivity extends AppCompatActivity {
                     if (objects.size() > 0) {
                         Log.i("info", String.valueOf(objects.size()));
 
-                        for (ParseObject image : objects) {
+                        for (ParseObject object : objects) {
 
-                            ParseFile file = (ParseFile) image.get("picture");
+                            ParseFile file = (ParseFile) object.get("picture");
 
                             file.getDataInBackground(new GetDataCallback() {
                                 @Override
                                 public void done(byte[] data, ParseException e) {
                                     if (e == null) {
                                         if (data != null) {
-                                            String[] splitName = (ParseUser.getCurrentUser().getUsername()).split(" ");
-                                            discoverPeopleList.add(new DiscoverPeopleModel(data, R.drawable.cancel_image, splitName[0], ParseUser.getCurrentUser().getUsername()));
+                                            String fullName = (String) object.get("username");
+                                            String[] splitName = (fullName).split(" ");
+
+                                            discoverPeopleList.add(new DiscoverPeopleModel(data, R.drawable.cancel_image, splitName[0],fullName));
                                             discoverPeopleAdapter.notifyDataSetChanged();
                                         } else {
                                             Toast.makeText(DiscoverPeopleActivity.this, "no image in array", Toast.LENGTH_SHORT).show();

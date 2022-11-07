@@ -71,11 +71,6 @@ public class SignupDataSetActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                /*ParseUser user = new ParseUser();
-                user.setUsername(fullName.getText().toString());
-                user.setPassword(userPassword.getText().toString());
-                user.saveInBackground();*/
-
                 Intent getEmailIntent = getIntent();
 
                 Intent intent = new Intent(SignupDataSetActivity.this, SignupConfirmActivity.class);

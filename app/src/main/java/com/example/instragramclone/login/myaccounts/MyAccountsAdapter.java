@@ -10,9 +10,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import java.util.ArrayList;
 
@@ -72,6 +78,24 @@ public class MyAccountsAdapter extends RecyclerView.Adapter<MyAccountsAdapter.My
                         dialog.dismiss();
                     }
                 });
+            }
+        });
+
+        holder.follow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ParseObject followings = new ParseObject("UserFollowings");
+                followings.put("username", ParseUser.getCurrentUser().getUsername());
+                followings.addUnique("following", holder.username.getText());
+                followings.saveInBackground(new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        Toast.makeText(context, "You are now following " + holder.username.getText(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                holder.follow.setEnabled(false);
+                holder.follow.setAlpha(0.4f);
             }
         });
     }
