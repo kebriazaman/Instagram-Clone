@@ -4,6 +4,7 @@ import static com.example.instragramclone.R.*;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,11 +54,10 @@ public class MyAccountsAdapter extends RecyclerView.Adapter<MyAccountsAdapter.My
         dialog.setContentView(layout.remove_myacc_from_list_layout);
         dialog.getWindow().setBackgroundDrawableResource(drawable.remove_acc_round_corners);
         dialog.setCancelable(false);
+
         holder.remove_from_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialog.show();
-
                 TextView removeAccTextView = dialog.findViewById(id.removeAccTextView);
                 removeAccTextView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -81,23 +81,7 @@ public class MyAccountsAdapter extends RecyclerView.Adapter<MyAccountsAdapter.My
             }
         });
 
-        holder.follow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ParseObject followings = new ParseObject("UserFollowings");
-                followings.put("username", ParseUser.getCurrentUser().getUsername());
-                followings.addUnique("following", holder.username.getText());
-                followings.saveInBackground(new SaveCallback() {
-                    @Override
-                    public void done(ParseException e) {
-                        Toast.makeText(context, "You are now following " + holder.username.getText(), Toast.LENGTH_SHORT).show();
-                    }
-                });
 
-                holder.follow.setEnabled(false);
-                holder.follow.setAlpha(0.4f);
-            }
-        });
     }
 
     @Override
@@ -109,15 +93,15 @@ public class MyAccountsAdapter extends RecyclerView.Adapter<MyAccountsAdapter.My
 
         ImageView myImage, remove_from_list;
         TextView username;
-        Button follow;
+        Button followButton;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
             myImage = itemView.findViewById(id.personImage);
             username = itemView.findViewById(id.personName);
-            follow = itemView.findViewById(id.follow);
             remove_from_list = itemView.findViewById(id.remove_from_list);
+            followButton = itemView.findViewById(id.follow);
 
 
         }

@@ -31,9 +31,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         getEmailEditText.setCursorVisible(false);
 
-        getEmailEditText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        getEmailEditText.addTextChangedListener(new TextWatcher() { @Override public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
             }
 
@@ -48,8 +46,7 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
 
-            }
-        });
+            } });
 
 
         nextButton.setOnClickListener(new View.OnClickListener() {
