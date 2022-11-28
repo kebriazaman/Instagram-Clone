@@ -1,4 +1,4 @@
-package com.example.instragramclone;
+package com.example.instragramclone.extra;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,11 +7,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
-import com.example.instragramclone.login.myaccounts.MyAccountsActivity;
-import com.example.instragramclone.signup.ChangeUserNameActivity;
-import com.example.instragramclone.signup.discoverpeople.DiscoverPeopleActivity;
-import com.example.instragramclone.signup.signupdataset.SignUpActivity;
+import com.example.instragramclone.R;
+import com.example.instragramclone.signup.signupdataset.SignupConfirmActivity;
 
 public class IntroScreenActivity extends AppCompatActivity {
 
@@ -36,16 +35,16 @@ public class IntroScreenActivity extends AppCompatActivity {
                 }
                 catch (Exception ex){
                     // msg will be printed if exception is caught
-                    ex.printStackTrace();
+                    Toast.makeText(IntroScreenActivity.this, ex.getMessage(), Toast.LENGTH_SHORT).show();
                 }
                 finally{
                     // Code for going from splash screen to main activity
-                    Intent intent = new Intent(IntroScreenActivity.this, DiscoverPeopleActivity.class);
+                    Intent intent = new Intent(IntroScreenActivity.this, SignupConfirmActivity.class);
                     startActivity(intent);
                     finishAffinity();
                 }
             }
             // starting the thread
-        };thread.start();
+        };  thread.start();
     }
 }

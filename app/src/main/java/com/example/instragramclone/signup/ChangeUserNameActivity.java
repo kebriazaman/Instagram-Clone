@@ -81,21 +81,19 @@ public class ChangeUserNameActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                dialog.show();
                 ParseUser currentUser = new ParseUser();
-
                 currentUser.put("username", changeUserNameEditText.getText().toString());
                 currentUser.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {
                         if (e == null) {
-                            dialog.show();
+                            dialog.dismiss();
                             Intent intent = new Intent(ChangeUserNameActivity.this, SignupConfirmActivity.class);
                             startActivity(intent);
                         }
                     }
                 });
-                dialog.dismiss();
             }
         });
 

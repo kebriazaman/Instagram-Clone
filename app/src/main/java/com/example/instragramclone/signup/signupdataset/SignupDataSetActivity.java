@@ -62,17 +62,13 @@ public class SignupDataSetActivity extends AppCompatActivity {
                     continueButton.setEnabled(false);
                     continueButton.setAlpha(0.4f);
                 }
-
-
             }
         });
 
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent getEmailIntent = getIntent();
-
                 Intent intent = new Intent(SignupDataSetActivity.this, SignupConfirmActivity.class);
                 intent.putExtra("fullname", fullName.getText().toString());
                 intent.putExtra("userpassword", userPassword.getText().toString());

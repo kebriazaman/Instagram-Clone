@@ -1,4 +1,4 @@
-package com.example.instragramclone;
+package com.example.instragramclone.extra;
 
 import android.app.Application;
 

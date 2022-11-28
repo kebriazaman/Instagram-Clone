@@ -15,6 +15,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -29,8 +30,8 @@ import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class AddPhotoActivity extends AppCompatActivity {
 
@@ -116,6 +117,7 @@ public class AddPhotoActivity extends AppCompatActivity {
 
 
 
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if ( checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                 requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQ_CODE);
@@ -135,7 +137,8 @@ public class AddPhotoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(AddPhotoActivity.this, DiscoverPeopleActivity.class);
-                // pass image as well by intent right here
+                intent.putStringArrayListExtra("namesList", getIntent().getStringArrayListExtra("namesList"));
+                intent.putStringArrayListExtra("fullNamesList", getIntent().getStringArrayListExtra("fullNamesList"));
                 startActivity(intent);
             }
         });

@@ -3,6 +3,7 @@ package com.example.instragramclone.signup.discoverpeople;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,15 +51,7 @@ public class DiscoverPeopleAdapter extends RecyclerView.Adapter<DiscoverPeopleAd
 
         DiscoverPeopleModel discoverPeopleModel = discoverPeopleList.get(position);
 
-        Bitmap myBitmap = BitmapFactory.decodeByteArray(discoverPeopleModel.data, 0, discoverPeopleModel.data.length);
-
-        ImageView myImageView = new ImageView(context);
-        myImageView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        myImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        myImageView.setImageBitmap(myBitmap);
-        myImageView.setImageBitmap(myBitmap);
-        holder.cardView.addView(myImageView);
-
+        holder.personImage.setImageBitmap(discoverPeopleModel.bitmap);
         holder.personName.setText(discoverPeopleModel.name);
         holder.personFullName.setText(discoverPeopleModel.fullName);
         holder.remove_from_list.setImageResource(discoverPeopleModel.remove);
@@ -67,7 +60,6 @@ public class DiscoverPeopleAdapter extends RecyclerView.Adapter<DiscoverPeopleAd
             public void onClick(View view) {
                 discoverPeopleList.remove(holder.getAdapterPosition());
                 notifyDataSetChanged();
-
             }
         });
 
@@ -78,34 +70,30 @@ public class DiscoverPeopleAdapter extends RecyclerView.Adapter<DiscoverPeopleAd
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> objects, ParseException e) {
-                if ( e == null ) {
-                    if ( objects != null ) {
-                        if ( objects.get(0).getList("following").contains(String.valueOf(holder.personName.getText())) ) {
+                if (e == null) {
+                    if (objects != null) {
+                        if (objects.get(0).getList("following").contains(String.valueOf(holder.personName.getText()))) {
                             holder.followButton.setEnabled(false);
                             holder.followButton.setAlpha(0.4f);
                             holder.followButton.setText("Followed");
-                        } else {
-                            Toast.makeText(context, "did not go there", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
             }
         });
 
-
-
         holder.followButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 
-                /*ParseObject followings = new ParseObject("UserFollowings");
+                ParseObject followings = new ParseObject("UserFollowings");
                 followings.put("username", ParseUser.getCurrentUser().getUsername());
                 followings.addUnique("following", holder.personName.getText().toString());
                 followings.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {
-                        if ( e == null ){
+                        if (e == null) {
 
                             Toast.makeText(context, "You are now following " + holder.personName.getText(), Toast.LENGTH_SHORT).show();
                         } else {
@@ -113,13 +101,16 @@ public class DiscoverPeopleAdapter extends RecyclerView.Adapter<DiscoverPeopleAd
                         }
                     }
                 });
-*/
                 holder.followButton.setEnabled(false);
                 holder.followButton.setAlpha(0.4f);
                 holder.followButton.setText("Followed");
 
             }
         });
+
+
+
+
 
     }
 
